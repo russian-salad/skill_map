@@ -1,0 +1,27 @@
+.search {
+    margin:10px 0;
+    display :flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card {
+    cursor: pointer;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightblue;
+    margin: 8px;
+    border-radius: 5px;;
+}
+
+.flex {
+    max-width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    
+}
