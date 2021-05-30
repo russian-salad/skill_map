@@ -1,16 +1,13 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
-import HomePage from 'pages/homePage'
-import Pagination from 'components/pagination'
+import HomePage from 'pages/homePage/index'
 export default function Routes(){
     return(
         <main style ={{minHeight:'80Vh'}}>
             <Switch>
                 <Route path='/' component={HomePage}/>
             </Switch>
-            <div style={{display:'flex',justifyContent:'center',margin:10}}>
-                <Pagination/>
-            </div>
+
         </main>
     )
 }

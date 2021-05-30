@@ -6,8 +6,9 @@
 }
 
 .card {
-    width: 200px;
-    height: 200px;
+    cursor: pointer;
+    width: 140px;
+    height: 140px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,10 +1,10 @@
 import React from 'react'
 import Search from 'components/search'
 import Button from 'components/button'
-import s from './homepage.module.css'
+import s from 'pages/homePage/homepage.module.css'
+import Pagination from "components/pagination";
 
 
-export default function HomePage (props) {
     function SkillCard(props) {
             //  const { emblemUrl, id, code, name, area } = props.card;
                 return (
@@ -25,10 +25,11 @@ export default function HomePage (props) {
                       {/* </div> */}
                     </div>
                 //   {/* </Link> */}
-               
-              
+
+
         )
     }
+export default function HomePage (props) {
     return(
         <>
          <div className={s.search}>
@@ -52,6 +53,9 @@ export default function HomePage (props) {
             <SkillCard></SkillCard>
             <SkillCard></SkillCard>
             <SkillCard></SkillCard>
+         </div>
+         <div style={{display:'flex',justifyContent:'center',margin:10}}>
+                <Pagination/>
          </div>
         </>
     )

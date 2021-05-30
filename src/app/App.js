@@ -6,7 +6,7 @@ import Layout from 'layout'
 function App() {
   return (
     <BrowserRouter>
-      <Layout/>
+       <Layout/>
     </BrowserRouter>
   );
 }

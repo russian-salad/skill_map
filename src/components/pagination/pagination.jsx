@@ -14,7 +14,7 @@ export default function PaginationLink() {
           return (
             <Pagination
               page={page}
-              size='large'
+              size='medium'
               color='primary'
               count={10}
               renderItem={(item) => (
