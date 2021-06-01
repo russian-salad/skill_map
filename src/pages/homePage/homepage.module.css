@@ -22,7 +22,12 @@
     max-width: 1000px;
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
+    margin: 10px auto;
     justify-content: center;
     
+}
+.lol {
+    display: "flex";
+    justify-content: "center";
+    margin: 10px
 }

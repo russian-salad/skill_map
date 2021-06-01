@@ -57,7 +57,7 @@ export default function HomePage() {
         <Button handleClick={searchButtonClick} text="Найти" />
       </form>
       <div className={s.flex}>{specList}</div>
-      <div style={{ display: "flex", justifyContent: "center", margin: 10 }}>
+      <div className={s.flex}>
         <Pagination />
       </div>
     </>
