@@ -16,19 +16,17 @@ export default function HomePage() {
   const url = "https://jsonplaceholder.typicode.com/users";
   const token = "";
 
-  useEffect(async () => {
-    await axios
-      .get(url, {
-        // headers: { "X-Auth-Token": token },
-        dataType: "json",
-        type: "GET",
-      })
-      .then((response) => {
-        setData(response.data);
-        setList(response.data);
-      })
-      .catch((e) => console.log(e));
-  }, []);
+  useEffect( () => {
+   const fetchSpecialization = async()=>{
+    const res = await axios.get(url,
+      //  {  headers: { "X-Auth-Token": token }  }
+      )
+        setData(res.data);
+        setList(res.data);
+      }
+      fetchSpecialization()
+}
+  , []);
 
   const searchChange = (event) => setSearch(event.target.value);
 
@@ -58,7 +56,7 @@ export default function HomePage() {
       </form>
       <div className={s.flex}>{specList}</div>
       <div className={s.flex}>
-        <Pagination />
+        <Pagination/>
       </div>
     </>
   );

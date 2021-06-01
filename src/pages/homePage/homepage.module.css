@@ -17,6 +17,9 @@
     text-align: center;
     border-radius: 5px;;
 }
+a{
+    text-decoration: none;
+}
 
 .flex {
     max-width: 1000px;
@@ -26,8 +29,4 @@
     justify-content: center;
     
 }
-.lol {
-    display: "flex";
-    justify-content: "center";
-    margin: 10px
-}
+
