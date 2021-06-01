@@ -1,30 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
+import SpecCard from 'pages/homePage/specCard'
 import Search from "components/search";
 import Button from "components/button";
 import s from "pages/homePage/homepage.module.css";
 import Pagination from "components/pagination";
 
-function SpecCard(props) {
-  const { name, username } = props.data;
-  return (
-    <Link to={{ pathname: "#" }}>
-      <div className={s.card}>
-        {/* <div className="content"> */}
-        {/* <div className="card-img">
-                          <img src={emblemUrl alt={name} />
-                        </div> */}
-        <div className="card-info">
-          <h3>{name}</h3>
-          <p>{username}</p>
-        </div>
-        {/* </div> */}
-      </div>
-    </Link>
-  );
-}
+
 
 export default function HomePage(props) {
   const [data, setData] = useState([]);
