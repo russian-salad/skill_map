@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import SpecCard from 'pages/homePage/specCard'
+import SpecCard from "pages/homePage/specCard";
 import Search from "components/search";
 import Button from "components/button";
 import s from "pages/homePage/homepage.module.css";
 import Pagination from "components/pagination";
 
-
-
-export default function HomePage(props) {
+export default function HomePage() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [list, setList] = useState([]);
+
 
   const url = "https://jsonplaceholder.typicode.com/users";
   const token = "";
@@ -33,6 +32,7 @@ export default function HomePage(props) {
 
   const searchChange = (event) => setSearch(event.target.value);
 
+
   function searchButtonClick() {
     setList(
       data.filter((item) =>
@@ -41,14 +41,21 @@ export default function HomePage(props) {
     );
   }
 
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    searchButtonClick();
+  }
+  
+
   const specList = list.map((item) => <SpecCard key={item.id} data={item} />);
 
   return (
     <>
-      <div className={s.search}>
+      <form onSubmit={handleSubmit} className={s.search}>
         <Search onChange={searchChange} />
         <Button handleClick={searchButtonClick} text="Найти" />
-      </div>
+      </form>
       <div className={s.flex}>{specList}</div>
       <div style={{ display: "flex", justifyContent: "center", margin: 10 }}>
         <Pagination />
