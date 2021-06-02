@@ -51,7 +51,7 @@ export default function Header() {
           </IconButton> */}  
           <Typography variant="h6" className={classes.title}>
         <Link to ='/'>
-            NameName
+            YoursRoadMap
         </Link>
           </Typography>
           {auth && (

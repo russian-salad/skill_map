@@ -29,12 +29,15 @@ export default function HomePage() {
 }
   , []);
 
-  const searchChange = (event) => event.target.value !==''?
-  setSearch(event.target.value)
-  : searchButtonClick()
+  const searchChange = (event) =>{
+    setSearch(event.target.value)
+    if(event.target.value === '' ) { setSearch(event.target.value);searchButtonClick()}
+  }
+  
 
 
   function searchButtonClick() {
+    console.log(search);
     setList(
       data.filter((item) =>
         item.name.toLowerCase().includes(search.toLowerCase())

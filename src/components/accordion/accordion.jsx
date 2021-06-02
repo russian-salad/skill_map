@@ -12,8 +12,8 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.pxToRem(17),
+    fontWeight: theme.typography.fontWeightBold,
   },
 }));
 
@@ -29,7 +29,7 @@ export default function SimpleAccordion(props) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}><h3>{item.title}</h3></Typography>
+          <Typography className={classes.heading}>{item.title.toUpperCase()}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>{item.body}</Typography>
