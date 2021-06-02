@@ -8,6 +8,7 @@ import s from "pages/homePage/homepage.module.css";
 import Pagination from "components/pagination";
 
 export default function HomePage() {
+  
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [list, setList] = useState([]);
@@ -28,7 +29,9 @@ export default function HomePage() {
 }
   , []);
 
-  const searchChange = (event) => setSearch(event.target.value);
+  const searchChange = (event) => event.target.value !==''?
+  setSearch(event.target.value)
+  : searchButtonClick()
 
 
   function searchButtonClick() {

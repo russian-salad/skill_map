@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 
 export default function myButton(props) {
 return(
-    <Button onClick={props.handleClick} variant="outlined" color="primary">
+    <Button style={props.style} onClick={props.handleClick} variant="outlined" color="primary">
         {props.text}
     </Button>
  )

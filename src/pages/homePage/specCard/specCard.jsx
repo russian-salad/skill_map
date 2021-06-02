@@ -4,7 +4,7 @@ import s from 'pages/homePage/homepage.module.css'
 export default function SpecCard(props) {
     const { name, username } = props.data;
     return (
-      <Link to={{ pathname: "#" }}>
+      <Link to={{ pathname: "/#" }}>
         <div className={s.card}>
           {/* <div className="content"> */}
           {/* <div className="card-img">
