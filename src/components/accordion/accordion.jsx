@@ -5,7 +5,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Button from 'components/button'
+import Dialog from "components/dialog";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,12 +29,12 @@ export default function SimpleAccordion(props) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className={classes.heading}>{item.title}</Typography>
+          <Typography className={classes.heading}><h3>{item.title}</h3></Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>{item.body}</Typography>
         </AccordionDetails>
-          <Button style={{margin:10}} text='Подробнее'/>
+          <Dialog data={item}/>
       </Accordion>
       )}
     </div>
