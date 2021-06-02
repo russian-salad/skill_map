@@ -9,6 +9,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 // import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    '& a':{color:'#fff'}
   },
 }));
 
@@ -48,7 +50,9 @@ export default function Header() {
             <MenuIcon />
           </IconButton> */}  
           <Typography variant="h6" className={classes.title}>
+        <Link to ='/'>
             NameName
+        </Link>
           </Typography>
           {auth && (
             <div>
