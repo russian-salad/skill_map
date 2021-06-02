@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   heading: {
+    minHeight:55,
     fontSize: theme.typography.pxToRem(17),
     fontWeight: theme.typography.fontWeightBold,
   },
