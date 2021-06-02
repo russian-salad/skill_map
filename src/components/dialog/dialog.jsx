@@ -26,7 +26,7 @@ const DialogTitle = withStyles(styles)((props) => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
+      <Typography variant="h4">{children}</Typography>
       {onClose ? (
         <IconButton aria-label="close" className={classes.closeButton} onClick={onClose}>
           <CloseIcon />
@@ -66,7 +66,7 @@ export default function CustomizedDialogs(props) {
       </Button>
       <Dialog fullWidth={true} maxWidth={false} onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          <h3>{props.data.title}</h3>
+          {props.data.title}
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
