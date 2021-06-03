@@ -61,7 +61,7 @@ export default function CustomizedDialogs(props) {
 
   return (
     <div>
-      <Button style={{margin:10}} variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button  variant="contained" color="primary" onClick={handleClickOpen}>
         Подробнее
       </Button>
       <Dialog fullWidth={true} maxWidth={false} onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>

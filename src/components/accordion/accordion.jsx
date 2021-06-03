@@ -6,6 +6,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Dialog from "components/dialog";
+import { AccordionActions, Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +36,10 @@ export default function SimpleAccordion(props) {
         <AccordionDetails>
           <Typography>{item.body}</Typography>
         </AccordionDetails>
+        <Divider/>
+        <AccordionActions>
           <Dialog data={item}/>
+        </AccordionActions>
       </Accordion>
       )}
     </div>
