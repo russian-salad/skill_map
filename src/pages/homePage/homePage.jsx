@@ -31,8 +31,7 @@ export default function HomePage() {
   const searchChange = (event) => {
     setSearch(event.target.value);
     if (event.target.value === "") {
-      setSearch(event.target.value);
-      searchButtonClick();
+      setList(data)
     }
   };
 
@@ -51,7 +50,7 @@ export default function HomePage() {
 
   const specList = list.map((item) => <SpecCard key={item.id} data={item} />);
 
-  const range = 3;
+  const range = 5;
   const pageList = specList.slice(
     (page - 1) * range,
     (page - 1) * range + range
