@@ -58,7 +58,6 @@ export default function Login () {
               margin="dense"
               label="Логин"
               type="login"
-              autoFocus
             />
             <TextField
               id="Password"
