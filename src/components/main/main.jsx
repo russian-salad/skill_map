@@ -8,7 +8,7 @@ export default function Routes(){
         <main style ={{minHeight:'80Vh'}}>
             <Switch>
                 <Route exact path='/' component={HomePage}/>
-                <Route path='/#' component={specPage}/>
+                <Route path='/:pecialization' component={specPage}/>
             </Switch>
 
         </main>
