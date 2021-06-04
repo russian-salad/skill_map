@@ -3,18 +3,22 @@ import Accordion from "components/accordion";
 import axios from "axios";
 import { CircularProgress } from "@material-ui/core";
 
-export default function (props) {
+export default function SpecializationPage (props) {
+
   const [data, setData] = useState([]);
   const [loading,setLoading] = useState(false)
+
   const url = "https://jsonplaceholder.typicode.com/posts";
   useEffect(() => {
+    setLoading(true)
     const fetchSkills = async () => {
-      const res = await axios.get(url);
-      setData(res.data);
+      await axios.get(url)
+      .then(res=>setData(res.data))
+      .then(()=>setLoading(false));
+      
     };
     fetchSkills()
   }, []);
-  useEffect(()=>{setLoading(!loading)},[data])
 if(loading){
   return <div style={{display:'flex',justifyContent:'center',marginTop:50}}>
     <CircularProgress

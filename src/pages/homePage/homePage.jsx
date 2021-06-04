@@ -13,23 +13,24 @@ export default function HomePage() {
   const [search, setSearch] = useState("");
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
-  const [loading,setLoading] =useState(false)
+  const [loading,setLoading] =useState(true)
 
   const url = "https://jsonplaceholder.typicode.com/users";
   const token = "";
 
   useEffect(() => {
     const fetchSpecialization = async () => {
-      const res = await axios.get(
+       await axios.get(
         url
         //  {  headers: { "X-Auth-Token": token }  }
-      );
-      setData(res.data);
-      setList(res.data);
+      ).then(res=>{
+        setData(res.data)
+        setList(res.data)
+      })
+      .then(()=>setLoading(false))
     };
     fetchSpecialization();
   }, []);
-  useEffect(()=>{setLoading(!loading)},[data])
 
   const searchChange = (event) => {
     setSearch(event.target.value);

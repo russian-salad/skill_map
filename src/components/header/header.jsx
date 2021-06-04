@@ -10,6 +10,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { Link } from 'react-router-dom';
+import Login from 'components/login/login';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,9 +47,6 @@ export default function Header() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton> */}  
           <Typography variant="h6" className={classes.title}>
         <Link to ='/'>
             YoursRoadMap
@@ -85,6 +83,7 @@ export default function Header() {
               </Menu>
             </div>
           )}
+          <Login/> 
         </Toolbar>
       </AppBar>
     </div>
