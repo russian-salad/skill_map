@@ -4,7 +4,7 @@ import Pagination from "@material-ui/lab/Pagination";
 
 import SpecCard from "pages/homePage/specCard";
 import Search from "components/search";
-import Button from "components/button";
+import Button from "@material-ui/core/Button";
 import s from "pages/homePage/homepage.module.css";
 import { CircularProgress } from "@material-ui/core";
 
@@ -13,21 +13,23 @@ export default function HomePage() {
   const [search, setSearch] = useState("");
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
-  const [loading,setLoading] =useState(true)
+  const [loading, setLoading] = useState(true);
 
   const url = "https://jsonplaceholder.typicode.com/users";
   const token = "";
 
   useEffect(() => {
     const fetchSpecialization = async () => {
-       await axios.get(
-        url
-        //  {  headers: { "X-Auth-Token": token }  }
-      ).then(res=>{
-        setData(res.data)
-        setList(res.data)
-      })
-      .then(()=>setLoading(false))
+      await axios
+        .get(
+          url
+          //  {  headers: { "X-Auth-Token": token }  }
+        )
+        .then((res) => {
+          setData(res.data);
+          setList(res.data);
+        })
+        .then(() => setLoading(false));
     };
     fetchSpecialization();
   }, []);
@@ -35,7 +37,7 @@ export default function HomePage() {
   const searchChange = (event) => {
     setSearch(event.target.value);
     if (event.target.value === "") {
-      setList(data)
+      setList(data);
     }
   };
 
@@ -50,7 +52,7 @@ export default function HomePage() {
   function handleSubmit(e) {
     e.preventDefault();
     searchButtonClick();
-    setPage(1)
+    setPage(1);
   }
 
   const specList = list.map((item) => <SpecCard key={item.id} data={item} />);
@@ -61,34 +63,46 @@ export default function HomePage() {
     (page - 1) * range + range
   );
 
- if(loading){
-   return <>
-    <form onSubmit={handleSubmit} className={s.search}>
-        <Search onChange={searchChange} />
-        <Button handleClick={searchButtonClick} text="Найти" />
-      </form>
-      <div className={s.flex}>
-     <CircularProgress
-      size={150}
-      thickness={2}    
-     />
-      </div>
-   </>
- }else{ 
-   return (
-    <>
-      <form onSubmit={handleSubmit} className={s.search}>
-        <Search onChange={searchChange} />
-        <Button handleClick={searchButtonClick} text="Найти" />
-      </form>
-      <div className={s.flex}>{pageList}</div>
-      <div className={s.flex}>
-        <Pagination
-        color='primary'
-          onChange={(event, value) => setPage(value)}
-          count={Math.ceil(specList.length / range)}
-        />
-      </div>
-    </>
-  )}
+  if (loading) {
+    return (
+      <>
+        <form onSubmit={handleSubmit} className={s.search}>
+          <Search onChange={searchChange} />
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={searchButtonClick}
+          >
+            Найти
+          </Button>
+        </form>
+        <div className={s.flex}>
+          <CircularProgress size={150} thickness={2} />
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <form onSubmit={handleSubmit} className={s.search}>
+          <Search onChange={searchChange} />
+          <Button
+            variant="outlined"
+            color="primary"
+            onClick={searchButtonClick}
+          >
+            Найти
+          </Button>
+        </form>
+        <div className={s.flex}>{pageList}</div>
+        <div className={s.flex}>
+          <Pagination
+            color="primary"
+            onChange={(event, value) => setPage(value)}
+            count={Math.ceil(specList.length / range)}
+          />
+        </div>
+      </>
+    );
+  }
 }
