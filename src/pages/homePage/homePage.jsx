@@ -6,12 +6,14 @@ import SpecCard from "pages/homePage/specCard";
 import Search from "components/search";
 import Button from "components/button";
 import s from "pages/homePage/homepage.module.css";
+import { CircularProgress } from "@material-ui/core";
 
 export default function HomePage() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
+  const [loading,setLoading] =useState(false)
 
   const url = "https://jsonplaceholder.typicode.com/users";
   const token = "";
@@ -27,6 +29,7 @@ export default function HomePage() {
     };
     fetchSpecialization();
   }, []);
+  useEffect(()=>{setLoading(!loading)},[data])
 
   const searchChange = (event) => {
     setSearch(event.target.value);
@@ -46,17 +49,32 @@ export default function HomePage() {
   function handleSubmit(e) {
     e.preventDefault();
     searchButtonClick();
+    setPage(1)
   }
 
   const specList = list.map((item) => <SpecCard key={item.id} data={item} />);
 
-  const range = 5;
+  const range = 2;
   const pageList = specList.slice(
     (page - 1) * range,
     (page - 1) * range + range
   );
 
-  return (
+ if(loading){
+   return <>
+    <form onSubmit={handleSubmit} className={s.search}>
+        <Search onChange={searchChange} />
+        <Button handleClick={searchButtonClick} text="Найти" />
+      </form>
+      <div className={s.flex}>
+     <CircularProgress
+      size={150}
+      thickness={2}    
+     />
+      </div>
+   </>
+ }else{ 
+   return (
     <>
       <form onSubmit={handleSubmit} className={s.search}>
         <Search onChange={searchChange} />
@@ -71,5 +89,5 @@ export default function HomePage() {
         />
       </div>
     </>
-  );
+  )}
 }
