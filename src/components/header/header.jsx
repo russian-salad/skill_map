@@ -9,6 +9,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 // import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { Link } from 'react-router-dom';
+import Login from 'components/login/login';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    '& a':{color:'#fff'}
   },
 }));
 
@@ -27,11 +30,7 @@ export default function Header() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
-
+  
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -44,11 +43,10 @@ export default function Header() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton> */}  
           <Typography variant="h6" className={classes.title}>
-            NameName
+        <Link to ='/'>
+            YoursRoadMap
+        </Link>
           </Typography>
           {auth && (
             <div>
@@ -81,6 +79,7 @@ export default function Header() {
               </Menu>
             </div>
           )}
+          <Login/> 
         </Toolbar>
       </AppBar>
     </div>

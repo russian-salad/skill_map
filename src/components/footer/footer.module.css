@@ -1,5 +1,8 @@
 .footer {
+    display: flex;
+    justify-content: center;
     height: 60px;
     background-color: #5c6bc0;
-    color:#FFF
+    color:#FFF;
+    align-items: flex-end;  
 }
